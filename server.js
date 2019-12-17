@@ -1,7 +1,8 @@
 const express = require('express')
 const app = express()
 
-var hbs = require('hbs');
+const hbs = require('hbs');
+require('./hbs/helpers');
 
 const port = process.env.PORT || 3000;
 
@@ -16,16 +17,13 @@ app.set('view engine', 'hbs');
 app.get('/', (req, res) => {
 
   res.render( 'home.hbs', {
-      nombre: 'Illak',
-      anio: new Date().getFullYear()
-  } );
+      nombre: 'illak zapata'
+      } );
 })
 
 app.get('/about', (req, res) => {
 
-  res.render( 'about.hbs', {
-    anio: new Date().getFullYear()
-  } );
+  res.render( 'about.hbs');
 })
 
 // app.get('/data', (req, res) => {
